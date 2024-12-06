@@ -1,0 +1,29 @@
+{
+  "a11y:screenshot": "Screenshot",
+  "a11y:toggle": "Toggle",
+  "a11y:view-post": "View Post",
+  "action:follow": "You can follow the progress on <link>Github</link>.",
+  "brand": {
+    "github": "GitHub"
+  },
+  "date:published-on": "Published on {date}",
+  "desc:blog": "A blog built using @next/mdx. Posts are written in MDX.",
+  "desc:features": "This project is an experiment to see how a modern app, with features like auth, API routes, and static pages would work in Next.js 14 app dir.",
+  "desc:open-source": "This project is open source and powered by open source software. The code is available on GitHub.",
+  "desc:purpose": "I'm building a web app with Next.js 14 and open sourcing everything. Follow along as we figure this out together.",
+  "desc:wip": "This app is a work in progress. I'm building this in public.",
+  "nav": {
+    "menu": "Menu",
+    "go-to-dashboard": "Go to Dashboard"
+  },
+  "nav:see-all-posts": "See all posts",
+  "title:blog": "Blog",
+  "title:features": "Features",
+  "title": {
+    "hello": "Hello World!"
+  },
+  "title:open-source": "Proudly Open Source",
+  "toast:title:not-implemented": "Not implemented yet.",
+  "toast:desc:not-implemented": "We're still working on the search.",
+  "input:search-doc": "Search documentation..."
+}

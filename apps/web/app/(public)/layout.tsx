@@ -1,11 +1,11 @@
 import type { Metadata, Viewport } from "next"
 import { Inter } from "next/font/google"
 import localFont from "next/font/local"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 import { type LayoutProps } from "@/types/common"
 import { baseMetadata, baseViewport } from "@/constants/metadata"
 import { cn, Toaster } from "@shared/ui"
-import { Analytics } from "@/components/analytics"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Help } from "@/features/public/common/ui/helper"
@@ -59,10 +59,10 @@ export default function RootLayout({ children }: LayoutProps) {
           forcedTheme="light"
         >
           <div className="flex min-h-screen flex-col">{children}</div>
-          <Analytics />
           <Help />
           <Toaster />
           <TailwindIndicator />
+          <SpeedInsights />
         </ThemeProvider>
       </body>
     </html>

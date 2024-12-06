@@ -9,7 +9,7 @@ export const NavbarActions = () => {
     <div className="flex">
       <Link
         href={routes.home}
-        className={cn(buttonVariants({ variant: "brand", size: "xs" }))}
+        className={cn(buttonVariants({ variant: "default", size: "xs" }))}
       >
         <ExitIcon className="mr-2 size-5" />
         Exit

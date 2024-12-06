@@ -15,7 +15,7 @@ export default async function Page() {
   return (
     <>
       {billboard && <Billboard data={billboard} />}
-      <ContentContainer>
+      <ContentContainer withSpaceY>
         <List title="Featured News" items={items} />
       </ContentContainer>
     </>

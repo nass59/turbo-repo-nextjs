@@ -1,3 +1,5 @@
+// @ts-check
+
 import createMDX from "@next/mdx"
 import rehypeAutolinkHeadings from "rehype-autolink-headings"
 import rehypePrettyCode from "rehype-pretty-code"

@@ -6,7 +6,9 @@ import { PageWrapper } from "@/features/public/common/ui/page-wrapper"
 export default function Layout({ children }: LayoutProps) {
   return (
     <PageWrapper mainNavItems={marketingConfig.mainNav}>
-      <ContentContainer centered>{children}</ContentContainer>
+      <ContentContainer centered withSpaceY>
+        {children}
+      </ContentContainer>
     </PageWrapper>
   )
 }

@@ -1,7 +1,7 @@
-import { type Route } from "next"
 import Image from "next/image"
 import Link from "next/link"
 
+import { t } from "@/lib/i18n-next"
 import { formatDate } from "@/lib/utils"
 
 import { type Author } from "./authors"
@@ -11,7 +11,6 @@ export type Post = {
   date: string
   description: string
   image: string
-  slug: string
   title: string
   url: string
 }
@@ -36,20 +35,14 @@ export const Post = ({ post, hasPriority = false }: Props) => {
       )}
 
       <h2 className="text-2xl font-extrabold">{post.title}</h2>
-
-      {post.description && (
-        <p className="text-muted-foreground">{post.description}</p>
-      )}
-
-      {post.date && (
-        <p className="text-sm text-muted-foreground">{formatDate(post.date)}</p>
-      )}
+      <p className="text-muted-foreground">{post.description}</p>
+      <p className="text-sm text-muted-foreground">{formatDate(post.date)}</p>
 
       <Link
-        href={post.url as Route}
+        href={post.url}
         className="absolute inset-0 -top-2 rounded-md focus:outline-none focus:ring-2 focus:ring-slate-600 focus:ring-offset-2"
       >
-        <span className="sr-only">View Post</span>
+        <span className="sr-only">{t("a11y:view-post")}</span>
       </Link>
     </article>
   )

@@ -36,7 +36,7 @@ export default async function Page({ params }: PageProps) {
   )
 
   return (
-    <ContentContainer withSpace>
+    <ContentContainer withSpaceY>
       <Item item={item} />
       <hr />
       <List title="Suggested items" items={suggestedItems} nbCols={5} />

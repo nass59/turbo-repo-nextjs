@@ -36,7 +36,7 @@ export default async function Page({ params }: PageProps) {
   return (
     <>
       {category && <Billboard data={category.billboard} />}
-      <ContentContainer>
+      <ContentContainer withSpaceY>
         <List title={`${category.name} Items`} items={items} />
       </ContentContainer>
     </>

@@ -5,6 +5,9 @@ type JsonResponse = {
   stargazers_count: number
 }
 
+// Revalidate the API every hour
+const API_REVALIDATE = 3600
+
 const getResponse = async () => {
   try {
     const response = await fetch(siteConfig.links.api_github, {
@@ -12,12 +15,12 @@ const getResponse = async () => {
         Accept: "application/vnd.github+json",
         Authorization: `Bearer ${env.GITHUB_ACCESS_TOKEN}`,
       },
-      next: {
-        revalidate: 3600,
-      },
+      next: { revalidate: API_REVALIDATE },
     })
 
-    if (!response?.ok) return null
+    if (!response?.ok) {
+      return null
+    }
 
     return (await response.json()) as JsonResponse
   } catch (error) {
@@ -25,10 +28,8 @@ const getResponse = async () => {
   }
 }
 
-export const getGithubStars = async (): Promise<number | null> => {
+export const getGithubStars = async () => {
   const response = await getResponse()
 
-  if (!response?.stargazers_count) return null
-
-  return response.stargazers_count
+  return response?.stargazers_count
 }

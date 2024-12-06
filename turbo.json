@@ -1,9 +1,28 @@
 {
   "$schema": "https://turborepo.org/schema.json",
-  "globalDependencies": ["**/.env.*local"],
-  "pipeline": {
+  "globalEnv": [
+    "NODE_ENV",
+    "CLERK_SECRET_KEY",
+    "GITHUB_ID",
+    "GITHUB_SECRET",
+    "GITHUB_ACCESS_TOKEN",
+    "MONGODB_DATABASE",
+    "MONGODB_URI",
+    "PREVIEW_URL_SECRET",
+    "SPACE_ID"
+  ],
+  "ui": "tui",
+  "globalDependencies": [".env", "**/.env.*local"],
+  "tasks": {
     "build": {
       "dependsOn": ["^build"],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        ".env.production.local",
+        ".env.local",
+        ".env.production",
+        ".env"
+      ],
       "outputs": [
         ".next/**",
         "!.next/cache/**",
@@ -11,8 +30,12 @@
         "storybook-static/**"
       ]
     },
-    "lint": {},
-    "typecheck": {},
+    "lint": {
+      "persistent": true
+    },
+    "typecheck": {
+      "persistent": true
+    },
     "dev": {
       "cache": false,
       "persistent": true
@@ -21,6 +44,5 @@
       "cache": false,
       "persistent": true
     }
-  },
-  "globalEnv": ["NODE_ENV"]
+  }
 }

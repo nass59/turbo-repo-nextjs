@@ -2,11 +2,11 @@ import type { Metadata, Viewport } from "next"
 import { Inter } from "next/font/google"
 import localFont from "next/font/local"
 import { ClerkProvider } from "@clerk/nextjs"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 import { type LayoutProps } from "@/types/common"
 import { baseMetadata, baseViewport } from "@/constants/metadata"
 import { cn, Toaster } from "@shared/ui"
-import { Analytics } from "@/components/analytics"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { ThemeProvider } from "@/components/theme-provider"
 import { ModalProvider } from "@/features/admin/common/providers/modal-provider"
@@ -42,9 +42,9 @@ export default function RootLayout({ children }: LayoutProps) {
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <ModalProvider />
             <div className="flex min-h-screen flex-col">{children}</div>
-            <Analytics />
             <Toaster />
             <TailwindIndicator />
+            <SpeedInsights />
           </ThemeProvider>
         </body>
       </html>

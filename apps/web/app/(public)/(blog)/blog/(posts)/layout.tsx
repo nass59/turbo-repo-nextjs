@@ -7,7 +7,7 @@ import { ContentContainer } from "@/features/public/common/ui/content-container"
  */
 export default function Layout({ children }: LayoutProps) {
   return (
-    <ContentContainer centered withSpace={false}>
+    <ContentContainer centered>
       <BackLink className="absolute left-[-150px] top-20 hidden xl:inline-flex" />
       <article className="m-auto max-w-3xl space-y-8">
         {children}

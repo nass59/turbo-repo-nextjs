@@ -1,26 +1,35 @@
 import Link from "next/link"
 import { type MainNavItem as TypeMainNavItem } from "@/types"
 
-import { buttonVariants, cn } from "@shared/ui"
+import { Button, cn } from "@shared/ui"
 
 type Props = {
-  item: TypeMainNavItem
   isActive: boolean
+  item: TypeMainNavItem
 }
 
-export const MainNavItem = ({ item, isActive, ...props }: Props) => {
-  if (item.disabled) return null
+/**
+ * MainNavItem component renders a navigation item as a button.
+ */
+export const MainNavItem = ({ isActive, item, ...props }: Props) => {
+  const { disabled, href, title } = item
+
+  if (disabled) {
+    return null
+  }
 
   return (
-    <Link
-      href={item.href}
-      className={cn(buttonVariants({ variant: "ghost", size: "xs" }), {
+    <Button
+      asChild
+      className={cn({
         "text-foreground": isActive,
-        "text-foreground/70": !isActive,
+        "text-muted-foreground": !isActive,
       })}
+      size="xs"
+      variant="ghost"
       {...props}
     >
-      {item.title}
-    </Link>
+      <Link href={href}>{title}</Link>
+    </Button>
   )
 }

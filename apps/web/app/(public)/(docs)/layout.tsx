@@ -19,7 +19,6 @@ export default function Layout({ children }: LayoutProps) {
 
       <div className="container flex-1 md:grid md:grid-cols-[240px_1fr] md:gap-10">
         <Sidebar items={docsConfig.sidebarNav} />
-
         <div className="space-y-4 py-4">
           <Breadcrumb />
           {children}

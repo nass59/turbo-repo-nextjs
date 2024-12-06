@@ -1,3 +1,4 @@
+import { t } from "@/lib/i18n-next"
 import { formatDate } from "@/lib/utils"
 
 import { Authors } from "./authors"
@@ -10,14 +11,12 @@ type Props = {
 export const PostHeader = ({ post }: Props) => {
   return (
     <div className="space-y-2">
-      {post.date && (
-        <time
-          dateTime={post.date}
-          className="block text-sm text-muted-foreground"
-        >
-          Published on {formatDate(post.date)}
-        </time>
-      )}
+      <time
+        dateTime={post.date}
+        className="block text-sm text-muted-foreground"
+      >
+        {t("date:published-on", { date: formatDate(post.date) })}
+      </time>
 
       <h1 className="font-heading text-3xl leading-tight lg:text-5xl">
         {post.title}

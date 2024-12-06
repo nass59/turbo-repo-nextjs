@@ -7,7 +7,9 @@ type Props = {
 }
 
 export const Sidebar = ({ items }: Props) => {
-  if (!items) return null
+  if (!items) {
+    return null
+  }
 
   return (
     <aside className="fixed top-16 z-30 hidden h-[calc(100vh-3.5rem)] w-full shrink-0 space-y-8 overflow-y-auto border-r py-6 pr-2 md:sticky md:block">

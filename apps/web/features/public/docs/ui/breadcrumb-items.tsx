@@ -6,7 +6,9 @@ import { usePathname } from "next/navigation"
 export const BreadcrumbItems = () => {
   const pathname = usePathname()
 
-  if (!pathname) return null
+  if (!pathname) {
+    return null
+  }
 
   const segments = pathname.split("/").slice(2)
 
